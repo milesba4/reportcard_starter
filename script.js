@@ -15,7 +15,7 @@ const studentInformation = {
   advisor: "Mark Huber",
   major: "Data Science",
   graduationYear: "2024",
-  imageUrl: "https://media-exp2.licdn.com/dms/image/C4E03AQFqaBVPXc-kAA/profile-displayphoto-shrink_400_400/0/1620668813979?e=1660176000&v=beta&t=yv4Rgm3K7aIjAiY8iWOvlAYbMWi-9_8pxWlSBb5s4ts",
+  imageUrl: "codepath.svg",
 }
 
 let semester = "Spring Semester"
@@ -128,7 +128,7 @@ function updateStudentGraduationYear(studentGradYr) {
  * @param {String} url - a link to an image
  */
 function updateStudentImage(studentImg) {
-studentImgEl.src = "https://media-exp2.licdn.com/dms/image/C4E03AQFqaBVPXc-kAA/profile-displayphoto-shrink_400_400/0/1620668813979?e=1660176000&v=beta&t=yv4Rgm3K7aIjAiY8iWOvlAYbMWi-9_8pxWlSBb5s4ts"
+studentImgEl.src = "codepath.svg"
 }
 
 /**
@@ -152,7 +152,15 @@ function populateStudentInfo(studentInformationObject) {
  */
 function addReportCardHeaders(reportCardTableElement) {
   // update the code here
-  reportCardTableElement.innerHTML += `<div class = "table-header">  </div>`
+  reportCardTableElement.innerHTML += 
+  `<div class = "table-row table-header ">  
+  <h4 class="code-col">Code</h4>
+  <h4 class="name-col">Name</h4>
+  <h4 class="sem-col">Semester</h4>
+  <h4 class="cred-col">Credits</h4>
+  <h4 class="lett-col">Letter</h4>
+  <h4 class="pts-col">Points</h4>
+  </div>`
 }
 
 /**
@@ -166,7 +174,13 @@ function addCourseRowToReportCard(reportCardTableElement, course, rowNum) {
   // update the code here with information about the course passed to this function
   reportCardTableElement.innerHTML += `
   <div class="table-row course-row row-${rowNum + 1} ${rowNum % 2 === 1 ? "odd" : "even"}">
-
+    <div class ="table-row">
+    <h4 class="code-col">${course.code}</h4>
+    <h4 class="name-col"></h4>
+    <h4 class="sem-col"></h4>
+    <h4 class="cred-col"></h4>
+    <h4 class="lett-col"></h4>
+    </div>
   </div>
   `
 }
