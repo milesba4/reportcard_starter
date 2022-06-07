@@ -10,12 +10,12 @@ By the end of the lab, all tests in the report should be passing.
 */
 
 const studentInformation = {
-  name: "FILL_IN_YOUR_NAME_HERE",
-  grade: "FILL_IN_YOUR_GRADE_HERE",
-  advisor: "FILL_IN_YOUR_ADVISOR_HERE",
-  major: "FILL_IN_YOUR_MAJOR_HERE",
-  graduationYear: "FILL_IN_YOUR_GRADUATION_YEAR_HERE",
-  imageUrl: "ADD_A_URL_TO_ANY_IMAGE_HERE",
+  name: "Miles Baffour",
+  grade: "15",
+  advisor: "Mark Huber",
+  major: "Data Science",
+  graduationYear: "2024",
+  imageUrl: "https://media-exp2.licdn.com/dms/image/C4E03AQFqaBVPXc-kAA/profile-displayphoto-shrink_400_400/0/1620668813979?e=1660176000&v=beta&t=yv4Rgm3K7aIjAiY8iWOvlAYbMWi-9_8pxWlSBb5s4ts",
 }
 
 let semester = "Spring Semester"
@@ -58,9 +58,20 @@ const gpaPointsLookup = {
 /**
  * QUERY SELECTORS VARIABLES GO HERE
  */
+const studentNameEl = document.querySelector("#student-name")
 const dropdownEl = document.querySelector(".dropdown")
-// ADD more query selectors here
-
+const studentAdvisorEl = document.querySelector("#student-advisor")
+const studentMajorEl = document.querySelector("#student-major")
+const studentGradeEl = document.querySelector("#student-grade-level")
+const studentGradYrEl = document.querySelector("#student-graduation-year")
+const studentImgEl = document.querySelector("#student-image")
+const studentSdd = document.querySelector(".semester-dropdown")
+const studentDb = document.querySelector(".dropdown-button")
+const studentDl = document.querySelector(".dropdown-label")
+const FallSem = document.querySelector("#fall-semester")
+const SprSem = document.querySelector("#spring-semester")
+const WintSem = document.querySelector("#winter-term")
+const RepCardTbl = document.querySelector("#report-card-table")
 /**
  * SOLUTIONS FOR STUDENT INFO DOM UPDATES
  */
@@ -71,16 +82,16 @@ const dropdownEl = document.querySelector(".dropdown")
  * @param {String} studentName - the name of the student
  */
 function updateStudentName(studentName) {
-  // code goes here
+studentNameEl.innerHTML= studentName
 }
 
 /**
  * Modify the report card to display the correct grade level from the lookup table above.
  *
- * @param {String|Number} studentGradeLevel - the grade level of the student
+ * @param {String|Number} updateStudentGradeLevel - the grade level of the student
  */
-function updateStudentGradeLevel(studentGradeLevel) {
-  // code goes here
+function updateStudentGradeLevel(studentGrade) {
+studentGradeEl.innerHTML = studentGrade
 }
 
 /**
@@ -89,7 +100,7 @@ function updateStudentGradeLevel(studentGradeLevel) {
  * @param {String} studentAdvisor - the advisor of the student
  */
 function updateStudentAdvisor(studentAdvisor) {
-  // code goes here
+  studentAdvisorEl.innerHTML=studentAdvisor
 }
 
 /**
@@ -98,7 +109,7 @@ function updateStudentAdvisor(studentAdvisor) {
  * @param {String} studentMajor - the major of the student
  */
 function updateMajor(studentMajor) {
-  // code goes here
+  studentMajorEl.innerHTML = studentMajor
 }
 
 /**
@@ -106,8 +117,8 @@ function updateMajor(studentMajor) {
  *
  * @param {Number} graduationyear - the year the student graduates
  */
-function updateStudentGraduationYear(graduationYear) {
-  // code goes here
+function updateStudentGraduationYear(studentGradYr) {
+  studentGradYrEl.innerHTML=studentGradYr
 }
 
 /**
@@ -116,8 +127,8 @@ function updateStudentGraduationYear(graduationYear) {
  *
  * @param {String} url - a link to an image
  */
-function updateStudentImage(imageUrl) {
-  // code goes here
+function updateStudentImage(studentImg) {
+studentImgEl.src = "https://media-exp2.licdn.com/dms/image/C4E03AQFqaBVPXc-kAA/profile-displayphoto-shrink_400_400/0/1620668813979?e=1660176000&v=beta&t=yv4Rgm3K7aIjAiY8iWOvlAYbMWi-9_8pxWlSBb5s4ts"
 }
 
 /**
@@ -141,7 +152,7 @@ function populateStudentInfo(studentInformationObject) {
  */
 function addReportCardHeaders(reportCardTableElement) {
   // update the code here
-  reportCardTableElement.innerHTML += ``
+  reportCardTableElement.innerHTML += `<div class = "table-header">  </div>`
 }
 
 /**
@@ -270,5 +281,5 @@ function calculateSemesterGpa(reportCardTableElement) {
 }
 
 window.onload = function () {
-  // execute your functions here to make sure they run as soon as the page loads
+populateStudentInfo(studentInformation)
 }
